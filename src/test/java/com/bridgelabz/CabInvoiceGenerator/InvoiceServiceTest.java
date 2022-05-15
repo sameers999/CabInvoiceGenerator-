@@ -48,4 +48,18 @@ public class InvoiceServiceTest {
 		Assert.assertEquals(15.0, average);
 		
 	}
+	@Test
+	public void Summary() {
+		InvoiceGenerator cabServiceGenerator = new InvoiceGenerator();
+		
+		Ride[] rides = { new Ride(2.0,5),
+				         new Ride(0.1,1),
+						};
+		double fare = cabServiceGenerator.calculate(rides);
+		int count = cabServiceGenerator.count(rides);
+		double average = cabServiceGenerator.Average(fare, count);
+		Summary invoiceSummary = new Summary(fare,count,average);
+		Assert.assertEquals(15.0, average);
+		System.out.println(invoiceSummary);
+	}
 }
