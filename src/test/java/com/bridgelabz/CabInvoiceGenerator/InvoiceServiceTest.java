@@ -17,7 +17,7 @@ public class InvoiceServiceTest {
 		Assert.assertEquals(25.0, fare);
 	}
 	@Test
-	public void givenDistanceAndTime_ShouldReturnMinFare() {
+	public void MinFare() {
 		double distance = 0.4;
 		int time = 1;
 		InvoiceGenerator cabServiceGenerator = new InvoiceGenerator();
@@ -25,7 +25,7 @@ public class InvoiceServiceTest {
 		Assert.assertEquals(5.0, fare);
 	}
 	@Test
-	public void givenMultipleRides_ShouldReturnAggregateTotalFare() {
+	public void TotalFare() {
 		InvoiceGenerator cabServiceGenerator = new InvoiceGenerator();
 		Ride[] rides = { new Ride(2.0,5),
 				         new Ride(0.1,1),
@@ -33,5 +33,19 @@ public class InvoiceServiceTest {
 		double fare = cabServiceGenerator.calculate(rides);
 		System.out.println(fare);
 		Assert.assertEquals(30.0, fare);
+	}
+	
+	@Test
+	public void FarePerRide() {
+		InvoiceGenerator cabServiceGenerator = new InvoiceGenerator();
+		Ride[] rides = { new Ride(2.0,5),
+				         new Ride(0.1,1),
+						};
+		double fare = cabServiceGenerator.calculate(rides);
+		int count = cabServiceGenerator.count(rides);
+		double average = cabServiceGenerator.Average(fare, count);
+		System.out.println(average);
+		Assert.assertEquals(15.0, average);
+		
 	}
 }
