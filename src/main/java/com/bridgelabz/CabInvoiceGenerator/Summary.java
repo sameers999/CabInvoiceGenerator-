@@ -1,7 +1,6 @@
 package com.bridgelabz.CabInvoiceGenerator;
 
 public class Summary {
-
 	double totalFare;
 	int count;
 	double average;
@@ -12,7 +11,6 @@ public class Summary {
 		this.count = count;
 		this.average = average;
 	}
-	
 	public Summary() {
 		
 	}
@@ -45,4 +43,4 @@ public class Summary {
 	public String toString() {
 		return "InvoiceSummary [totalFare=" + totalFare + ", count=" + count + ", average=" + average + "]";
 	}
-}
+	}
